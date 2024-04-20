@@ -1,17 +1,26 @@
-export default function Form(){
+export default function Form({onChange , userInput}){
+
     return (
         <div id="user-input">
-            <div className="input-group" id="user-input">
-                <label htmlFor="">Initial Investment</label>
-                <input type="number" />
-                <label htmlFor="">Annual Investment</label>
-                <input type="number" />
+            <div className="input-group">
+                <p>
+                    <label htmlFor="">Initial Investment</label>
+                    <input type="number" value={userInput.initialInvestment}  onChange={(event) => {onChange('initialInvestment',event.target.value)}} required/>
+                </p>
+                <p>
+                    <label htmlFor="">Annual Investment</label>
+                    <input type="number" value={userInput.annualInvestment} onChange={(event) => {onChange('annualInvestment',event.target.value)}} required/>
+                </p>
             </div>
-            <div className="input-group" id="user-input">
-                <label htmlFor="">Expected Return</label>
-                <input type="text" />
-                <label htmlFor="">duration</label>
-                <input type="text" />
+            <div className="input-group">
+                <p>
+                    <label htmlFor="">Expected Return</label>
+                    <input type="number" value={userInput.expectedReturn} onChange={(event) => {onChange('expectedReturn',event.target.value)}} required/>
+                </p>
+                <p>
+                    <label htmlFor="">duration</label>
+                    <input type="number" value={userInput.duration} onChange={(event) => {onChange('duration',event.target.value)}} required/>
+                </p>
             </div>
         </div>
     )
